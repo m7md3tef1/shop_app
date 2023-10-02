@@ -44,6 +44,7 @@ dependencies:
   fluttertoast:
   shared_preferences:
   carousel_slider:
+  cloud_firestore:
 
 dev_dependencies:
   flutter_test:

@@ -19,7 +19,7 @@ void main() async {
   await DioHelper.init();
   await CacheHelper.init();
   bool? onBoarding = CacheHelper.getData(key: 'onBoarding');
-   token = CacheHelper.getData(key: 'token');
+  token = CacheHelper.getData(key: 'token');
   print(token);
   // print(onBoarding);
   Widget widget;
@@ -27,7 +27,7 @@ void main() async {
     if (token != null) {
       widget = const ShopLayout();
     } else {
-      widget =  ShopLoginScreen();
+      widget = ShopLoginScreen();
     }
   } else {
     widget = const OnBoardingScreen();
@@ -42,13 +42,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        BlocProvider(create: (_) => ShopLoginCubit()),
-        BlocProvider(
-            create: (_) => ShopCubit()
-              ..getHomeData()
-              ..getCategories()
-              ..getFavorites()
-              ..getUserData()),
+
+            BlocProvider(create: (_) => ShopLoginCubit()),
+            BlocProvider(
+                create: (_) => ShopCubit()
+                  ..getHomeData()
+                  ..getCategories()
+                  ..getFavorites()
+                  ..getUserData()),
+
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
